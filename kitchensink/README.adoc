@@ -13,6 +13,7 @@ The `kitchensink` quickstart demonstrates a {javaVersion} web-enabled database a
 :uses-h2:
 :uses-ds-xml:
 
+
 //*************************************************
 // Shared CD and Product Release content
 //*************************************************
