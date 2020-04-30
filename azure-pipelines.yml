@@ -27,5 +27,17 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'aws'
+    cmd: 'oc set triggers dc/kitchensink --manual'
+    ignoreFlag: true
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'aws'
+    cmd: 'oc rollout latest dc/kitchensink'
+    ignoreFlag: true
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'aws'
     cmd: 'oc scale dc/kitchensink --replicas=3 -n kitchensink'
     ignoreFlag: true
