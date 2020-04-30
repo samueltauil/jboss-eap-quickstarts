@@ -16,7 +16,7 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'aws'
-    cmd: 'oc apply -f ${SYSTEM_DEFAULTWORKINGDIRECTORY}/_my_sources/jboss-eap-quickstarts/kitchensink/project.yaml'
+    cmd: 'oc apply -f ${SYSTEM_DEFAULTWORKINGDIRECTORY}/kitchensink/project.yaml'
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
