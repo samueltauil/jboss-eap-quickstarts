@@ -1,0 +1,24 @@
+trigger:
+ branches:
+   include:
+     - 7.3.x
+     
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: oc-setup@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'rhpds'
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'rhpds'
+    cmd: 'oc new-app -p SOURCE_REPOSITORY_URL=https://github.com/samueltauil/jboss-eap-quickstarts --template=eap72-basic-s2i -p CONTEXT_DIR=kitchensink -p APPLICATION_NAME=kitchensink -n kitchensink'
+    
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'rhpds'
+    cmd: 'oc scale dc/kitchensink --replicas=3 -n kitchensink'
