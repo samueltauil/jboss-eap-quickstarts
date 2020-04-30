@@ -11,7 +11,6 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'aws'
-
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
@@ -27,13 +26,13 @@ steps:
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'aws'
-    cmd: 'oc set triggers dc/kitchensink --manual'
+    cmd: 'oc set triggers dc/kitchensink --manual -n kitchensink'
     ignoreFlag: true
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'aws'
-    cmd: 'oc rollout latest dc/kitchensink'
+    cmd: 'oc rollout latest dc/kitchensink -n kitchensink'
     ignoreFlag: true
 - task: oc-cmd@2
   inputs:
