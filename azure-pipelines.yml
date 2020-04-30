@@ -10,15 +10,22 @@ steps:
 - task: oc-setup@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'rhpds'
+    openshiftService: 'aws'
+
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'rhpds'
-    cmd: 'oc new-app -p SOURCE_REPOSITORY_URL=https://github.com/samueltauil/jboss-eap-quickstarts --template=eap72-basic-s2i -p CONTEXT_DIR=kitchensink -p APPLICATION_NAME=kitchensink -n kitchensink'
+    openshiftService: 'aws'
+    cmd: 'oc apply -f ${SYSTEM_DEFAULTWORKINGDIRECTORY}/kitchensink/project.yaml'
+- task: oc-cmd@2
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'aws'
+    cmd: 'oc new-app -p SOURCE_REPOSITORY_URL=https://github.com/samueltauil/jboss-eap-quickstarts --template=eap72-basic-s2i -p MAVEN_MIRROR_URL=http://nexus.nexus3:8081/repository/maven-public -p CONTEXT_DIR=kitchensink -p APPLICATION_NAME=kitchensink -n kitchensink'
     
 - task: oc-cmd@2
   inputs:
     connectionType: 'OpenShift Connection Service'
-    openshiftService: 'rhpds'
+    openshiftService: 'aws'
     cmd: 'oc scale dc/kitchensink --replicas=3 -n kitchensink'
+
