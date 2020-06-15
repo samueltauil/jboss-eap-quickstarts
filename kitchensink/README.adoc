@@ -14,10 +14,10 @@ The `kitchensink` quickstart demonstrates a {javaVersion} web-enabled database a
 :uses-ds-xml:
 
 //*************************************************
-// Shared CD and Product Release content
+// Shared CD and Product Release content 
 //*************************************************
 
-== What is it? This is CodeReady Workspaces
+== What is it? This is CodeReady Workspaces This is so cool
 
 The `kitchensink` quickstart is a deployable Maven 3 project designed to help you get your foot in the door developing with {javaVersion} on {productNameFull}.
 
