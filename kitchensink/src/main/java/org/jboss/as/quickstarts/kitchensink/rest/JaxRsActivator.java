@@ -24,7 +24,7 @@ import javax.ws.rs.core.Application;
  * JAX-RS.
  * <p>
  * <p>
- * Resources are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
+ * Resources to be changed are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
  * </p>
  */
 @ApplicationPath("/rest")
